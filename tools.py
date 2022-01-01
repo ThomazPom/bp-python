@@ -1,15 +1,8 @@
-from keras_preprocessing.image import ImageDataGenerator
 
-# load_model_sample.py
-from keras.models import load_model
-from keras.preprocessing import image
-import matplotlib.pyplot as plt
-import numpy as np
-import os
-
-from keras.preprocessing.image_dataset import load_image
 
 def load_image(img_path):
+
+    from keras.preprocessing import image
     img = image.load_img(img_path)
     #img = img.resize(newsize)
     #img = img.convert("L")
@@ -22,20 +15,7 @@ def load_image(img_path):
     return img_tensor
 
 
-if __name__ == "__main__":
-    # load model
-    model = load_model("model.h5")
 
-    # image path
-    img_path = './src_imgs/0.png'  # dog
-    # img_path = '/media/data/dogscats/test1/19.jpg'      # cat
-
-    # load a single image
-    new_image = load_image(img_path)
-    print(new_image.shape)
-    # check prediction
-    pred = model.predict(new_image)
-    print(pred)
 def plot_figures(images_dicts, ncols=5):
     import matplotlib.pyplot as plt
     import numpy as np
@@ -143,6 +123,8 @@ def cut_image(img_path='numbergrid.gif', labels=None):
 
 
 def create_dataset(number_each=100,greyscale=False,num_classes=11):
+    from keras_preprocessing.image import ImageDataGenerator
+
     datagen = ImageDataGenerator(
        # rescale=1./255,
         zoom_range=1. / 255,
