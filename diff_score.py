@@ -59,4 +59,4 @@ for index_cible, img_cible in enumerate(imgs1):
         detected: img_cible
     })
 print(json.dumps(detection))
-plot_figures(to_plot)
+#plot_figures(to_plot)
