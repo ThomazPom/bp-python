@@ -76,11 +76,11 @@ def cut_image(img_path='numbergrid.gif', labels=None):
     # Load image
     if labels is None:
         labels = [
-            "6", "4", "8", "1", "0", "5", "7", "3", "9", "void", "void", "void", "2", "void", "void", "void"
+            "void","void","9","void","void","6","3","2","7","void","4","5","void","0","8","1"
         ]
     nbcols = 4
     nbrows = 4
-    bordersize = 3
+    bordersize = 4
     image = Image.open(img_path)
 
     image_arr = np.array(image)

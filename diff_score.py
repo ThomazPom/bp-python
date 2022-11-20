@@ -25,10 +25,10 @@ def count_black(img):
 
 
 def score_match(img1, img2, label="0"):
-    diff = ImageChops.difference(Image.fromarray(img1), Image.fromarray(img2))
+    diff = ImageChops.difference(Image.fromarray(img2),Image.fromarray(img1))
 
     num_black = count_black(diff)
-    # diff.save(label+"-difference.png")
+    #diff.save(label+"-difference.png")
     return num_black
 
 
@@ -45,15 +45,12 @@ imgs1, labels1 = cut_image(args[0])
 for index_cible, img_cible in enumerate(imgs1):
     score = 0
     detected = ""
-    for img_source, label in zip(imgs, config.get("class_orders").keys()):
+    for index,img_source in enumerate(imgs):
+        label = next(iter([key for key,item in config.get("class_orders").items() if item==index]),"void" )
         newscore = score_match(img_source, img_cible, label + str(index_cible))
         if newscore > score:
             score = newscore
             detected = label
-    if detected == "2":
-        score_void = score_match(img_cible, imgs[[*config.get("class_orders").keys()].index("void")])
-        detected = "2" if score_void < img_cible.shape[0] * img_cible.shape[0] * 0.96 else "void"
-
     detection.append(detected)
     to_plot.append({
         detected: img_cible
