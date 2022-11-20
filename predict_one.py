@@ -11,7 +11,7 @@ import sys
 
 args = sys.argv[1:]
 if len(args)==0:
-    args = ["./numbergrid_v.gif"]
+    args = ["./numbergrid_v.png"]
 
 imgs,labels = cut_image(args[0])
 

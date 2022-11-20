@@ -72,15 +72,15 @@ from PIL import Image
 import numpy as np
 
 
-def cut_image(img_path='numbergrid.gif', labels=None):
+def cut_image(img_path='numbergrid.png', labels=None):
     # Load image
     if labels is None:
         labels = [
-            "void","void","9","void","void","6","3","2","7","void","4","5","void","0","8","1"
+            "9","void","8","void","1","4","3","2","void","0","5","6","void","void","void","7"
         ]
     nbcols = 4
     nbrows = 4
-    bordersize = 4
+    bordersize = 3
     image = Image.open(img_path)
 
     image_arr = np.array(image)

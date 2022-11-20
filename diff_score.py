@@ -8,7 +8,7 @@ import numpy as np
 
 from numpy import asarray
 
-imgs, labels = cut_image("./numbergrid.gif")
+imgs, labels = cut_image("./numbergrid.png")
 
 # imgs1, labels1 = [],[]
 config = json.load(open("./config.json", "r"))
@@ -38,9 +38,9 @@ import sys
 
 args = sys.argv[1:]
 if len(args) == 0:
-    args = ["./numbergrid_v.gif"]
+    args = ["./numbergrid_v.png"]
 
-imgs, labels = cut_image("./numbergrid.gif")
+imgs, labels = cut_image("./numbergrid.png")
 imgs1, labels1 = cut_image(args[0])
 for index_cible, img_cible in enumerate(imgs1):
     score = 0

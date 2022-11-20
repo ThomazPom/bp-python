@@ -11,8 +11,8 @@ model = load_model("model.h5")
 
 ledir = "./src_imgs"
 
-imgs, labels = cut_image("./numbergrid.gif")
-imgs1, labels1 = cut_image("./numbergrid_v.gif")
+imgs, labels = cut_image("./numbergrid.png")
+imgs1, labels1 = cut_image("./numbergrid_v.png")
 # imgs1, labels1 = [],[]
 predictions = model.predict(np.array(imgs + imgs1))
 config = json.load(open("./config.json", "r"))
